@@ -21,7 +21,7 @@ build:
       - checkout
       - run:
           name: chmod permissions
-          command: chmod +x ./bin/phpunit
+          command: chmod +x /bin/phpunit
       - run:
           name: Install PHP MySQL
           command: sudo doker-php-ext-install pdo_mysql
