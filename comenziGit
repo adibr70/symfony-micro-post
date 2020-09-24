@@ -1,0 +1,4 @@
+-clonare intr-un director a ceea ce este pe gitHub
+    git clone git@github.com:adibr70/symfony-micro-post.git micropost_current
+        unde adibr70/symfony-micro-post.git este locul pe gitHub unde este proiectul
+        iar micropost_current este directorul unde vrem sa clonam
