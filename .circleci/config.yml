@@ -4,7 +4,7 @@
 #
 version: 2
 jobs:
-  build:
+build:
     working_directory: ~/micropost
     docker:
       - image: circleci/php:7.2.4-apache-stretch-node-browsers
@@ -19,6 +19,9 @@ jobs:
           MYSQL_DATABASE: micro-post
     steps:
       - checkout
+      - run:
+          name: chmod permissions
+          command: chmod +x ./bin/phpunit
       - run:
           name: Install PHP MySQL
           command: sudo doker-php-ext-install pdo_mysql
