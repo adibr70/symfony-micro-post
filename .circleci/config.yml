@@ -24,7 +24,7 @@ build:
           command: chmod +x /bin/phpunit
       - run:
           name: Install PHP MySQL
-          command: sudo doker-php-ext-install pdo_mysql
+          command: sudo docker-php-ext-install pdo_mysql
       - run:
           name: Wait for MySQL
           command: dockerize -wait tcp://127.0.0.1:3306 -timeout 120s
