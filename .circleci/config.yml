@@ -14,9 +14,9 @@ jobs:
           MAILER-FROM: micro@micropost.com
           MAILER-URL: null://localhost
       - image: circleci/mysql:5.7
-      environment:
-        MYSQL_ROOT_PASSWORD: 'root'
-        MYSQL_DATABASE: micro-post
+        environment:
+          MYSQL_ROOT_PASSWORD: 'root'
+          MYSQL_DATABASE: micro-post
     steps:
       - checkout
       - run:
