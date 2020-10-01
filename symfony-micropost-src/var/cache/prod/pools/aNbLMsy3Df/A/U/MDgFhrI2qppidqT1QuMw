@@ -1,0 +1,190 @@
+<?php //%255BApp%255CEntity%255CMicroPost%2524CLASSMETADATA%255D%255B1%255D
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\ClassMetadata')),
+        clone ($p['Doctrine\\ORM\\Id\\IdentityGenerator'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Id\\IdentityGenerator')),
+    ],
+    null,
+    [
+        'stdClass' => [
+            'name' => [
+                'App\\Entity\\MicroPost',
+            ],
+            'namespace' => [
+                'App\\Entity',
+            ],
+            'rootEntityName' => [
+                'App\\Entity\\MicroPost',
+            ],
+            'customRepositoryClassName' => [
+                'App\\Repository\\MicroPostRepository',
+            ],
+            'identifier' => [
+                [
+                    'id',
+                ],
+            ],
+            'generatorType' => [
+                4,
+            ],
+            'fieldMappings' => [
+                [
+                    'id' => [
+                        'fieldName' => 'id',
+                        'type' => 'integer',
+                        'scale' => 0,
+                        'length' => null,
+                        'unique' => false,
+                        'nullable' => false,
+                        'precision' => 0,
+                        'id' => true,
+                        'columnName' => 'id',
+                    ],
+                    'text' => [
+                        'fieldName' => 'text',
+                        'type' => 'string',
+                        'scale' => 0,
+                        'length' => 280,
+                        'unique' => false,
+                        'nullable' => false,
+                        'precision' => 0,
+                        'columnName' => 'text',
+                    ],
+                    'time' => [
+                        'fieldName' => 'time',
+                        'type' => 'datetime',
+                        'scale' => 0,
+                        'length' => null,
+                        'unique' => false,
+                        'nullable' => false,
+                        'precision' => 0,
+                        'columnName' => 'time',
+                    ],
+                ],
+            ],
+            'fieldNames' => [
+                [
+                    'id' => 'id',
+                    'text' => 'text',
+                    'time' => 'time',
+                ],
+            ],
+            'columnNames' => [
+                [
+                    'id' => 'id',
+                    'text' => 'text',
+                    'time' => 'time',
+                ],
+            ],
+            'table' => [
+                [
+                    'name' => 'micro_post',
+                ],
+            ],
+            'lifecycleCallbacks' => [
+                [
+                    'prePersist' => [
+                        'setTimeOnPersist',
+                    ],
+                ],
+            ],
+            'associationMappings' => [
+                [
+                    'user' => [
+                        'fieldName' => 'user',
+                        'joinColumns' => [
+                            [
+                                'name' => 'user_id',
+                                'unique' => false,
+                                'nullable' => false,
+                                'onDelete' => null,
+                                'columnDefinition' => null,
+                                'referencedColumnName' => 'id',
+                            ],
+                        ],
+                        'cascade' => [],
+                        'inversedBy' => 'posts',
+                        'targetEntity' => 'App\\Entity\\User',
+                        'fetch' => 2,
+                        'type' => 2,
+                        'mappedBy' => null,
+                        'isOwningSide' => true,
+                        'sourceEntity' => 'App\\Entity\\MicroPost',
+                        'isCascadeRemove' => false,
+                        'isCascadePersist' => false,
+                        'isCascadeRefresh' => false,
+                        'isCascadeMerge' => false,
+                        'isCascadeDetach' => false,
+                        'sourceToTargetKeyColumns' => [
+                            'user_id' => 'id',
+                        ],
+                        'joinColumnFieldNames' => [
+                            'user_id' => 'user_id',
+                        ],
+                        'targetToSourceKeyColumns' => [
+                            'id' => 'user_id',
+                        ],
+                        'orphanRemoval' => false,
+                    ],
+                    'likedBy' => [
+                        'fieldName' => 'likedBy',
+                        'joinTable' => [
+                            'name' => 'post_likes',
+                            'schema' => null,
+                            'joinColumns' => [
+                                [
+                                    'name' => 'post_id',
+                                    'unique' => false,
+                                    'nullable' => true,
+                                    'onDelete' => null,
+                                    'columnDefinition' => null,
+                                    'referencedColumnName' => 'id',
+                                ],
+                            ],
+                            'inverseJoinColumns' => [
+                                [
+                                    'name' => 'user_id',
+                                    'unique' => false,
+                                    'nullable' => true,
+                                    'onDelete' => null,
+                                    'columnDefinition' => null,
+                                    'referencedColumnName' => 'id',
+                                ],
+                            ],
+                        ],
+                        'targetEntity' => 'App\\Entity\\User',
+                        'mappedBy' => null,
+                        'inversedBy' => 'postsLiked',
+                        'cascade' => [],
+                        'orphanRemoval' => false,
+                        'fetch' => 2,
+                        'type' => 8,
+                        'isOwningSide' => true,
+                        'sourceEntity' => 'App\\Entity\\MicroPost',
+                        'isCascadeRemove' => false,
+                        'isCascadePersist' => false,
+                        'isCascadeRefresh' => false,
+                        'isCascadeMerge' => false,
+                        'isCascadeDetach' => false,
+                        'joinTableColumns' => [
+                            'post_id',
+                            'user_id',
+                        ],
+                        'relationToSourceKeyColumns' => [
+                            'post_id' => 'id',
+                        ],
+                        'relationToTargetKeyColumns' => [
+                            'user_id' => 'id',
+                        ],
+                    ],
+                ],
+            ],
+            'idGenerator' => [
+                $o[1],
+            ],
+        ],
+    ],
+    $o[0],
+    []
+); }];

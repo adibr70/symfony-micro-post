@@ -1,0 +1,9 @@
+3d5e15,192.168.10.1,GET,http://symfony-01.local/work/symfony-micropost/,1601331011,,200
+8cf812,192.168.10.1,GET,http://symfony-01.local/work/symfony-micropost/,1601331198,,404
+6a927b,192.168.10.1,GET,http://symfony-01.local/work/symfony-micropost/,1601331256,,200
+e2d2e5,192.168.10.1,GET,http://symfony-01.local/work/symfony-micropost/index.php/,1601331262,,200
+648e34,192.168.10.1,GET,http://symfony-01.local/work/symfony-micropost/index.php/blog,1601331270,,301
+632c95,192.168.10.1,GET,http://symfony-01.local/work/symfony-micropost/index.php/blog/,1601331271,,200
+7a6c34,192.168.10.1,GET,http://symfony-01.local/work/symfony-micropost/index.php/,1601331281,,200
+35d181,192.168.10.1,GET,http://symfony-01.local/work/symfony-micropost/index.php/add,1601331284,,302
+c00d64,192.168.10.1,GET,http://symfony-01.local/work/symfony-micropost/index.php/login,1601331284,,200

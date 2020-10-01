@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+
+{% block body %} 
+
+    <h3>Register</h3>
+    {{ form_start(form)  }}
+{#        {{ form_widget(form) }}#}
+    {{ form_row(form.username) }}
+    {{ form_row(form.email) }}
+    {{ form_row(form.plainPassword) }}
+    {{ form_row(form.fullname) }}
+    {{ form_row(form.termsAgreed) }}
+    <div class="form-group clearfix">
+        {{ form_widget(form.Register) }}
+        <div class="float-right">Have an account? <a href="{{ path('security_login') }}">Sign Up now!</a>
+    </div>
+
+
+    {{ form_end(form) }}
+    
+{% endblock %}
+
+

@@ -1,0 +1,9 @@
+{
+  "work/symfony-micropost/build/css/app.css": "/work/symfony-micropost/build/css/app.css",
+  "work/symfony-micropost/build/css/app.js": "/work/symfony-micropost/build/css/app.js",
+  "work/symfony-micropost/build/js/app.js": "/work/symfony-micropost/build/js/app.js",
+  "work/symfony-micropost/build/runtime.js": "/work/symfony-micropost/build/runtime.js",
+  "work/symfony-micropost/build/vendors~css/app.css": "/work/symfony-micropost/build/vendors~css/app.css",
+  "work/symfony-micropost/build/vendors~css/app.js": "/work/symfony-micropost/build/vendors~css/app.js",
+  "work/symfony-micropost/build/vendors~js/app.js": "/work/symfony-micropost/build/vendors~js/app.js"
+}
