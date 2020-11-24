@@ -62,5 +62,6 @@ class UserLocaleSubscriber implements EventSubscriberInterface
          */
         $user = $event->getAuthenticationToken()->getUser();
         $this->session->set('_locale', $user->getPreferences()->getLocale());
+        $event->getRequest()->attributes->set('_locale', $user->getPreferences()->getLocale());
     }
 }

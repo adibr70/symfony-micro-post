@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" target-language="fr" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="menu.signin">
+                <source>Sign in</source>
+                <target>Se connecter</target>
+            </trans-unit>
+            <trans-unit id="menu.signout">
+                <source>Sign out</source>
+                <target>Déconnexion</target>
+            </trans-unit>
+            <trans-unit id="menu.notifications">
+                <source>Notifications</source>
+                <target>Notifications</target>
+            </trans-unit>
+            <trans-unit id="menu.add">
+                <source>Add new</source>
+                <target>Ajouter une nouvelle</target>
+            </trans-unit>
+            <trans-unit id="post.recent">
+                <source>Recent updates</source>
+                <target>Mises à jour récentes</target>
+            </trans-unit>
+            <trans-unit id="post.index.message">
+                <source>You currently do not follow anyone, you might find these users interesting:</source>
+                <target>Vous ne suivez actuellement personne, vous pourriez trouver ces utilisateurs intéressants:</target>
+            </trans-unit>
+
+            <trans-unit id="register.username">
+                <source>Username</source>
+                <target>Nom d'utilisateur</target>
+            </trans-unit>
+            <trans-unit id="register.password">
+                <source>Password</source>
+                <target>Mot de passe</target>
+            </trans-unit>
+            <trans-unit id="register.repeated_password">
+                <source>Repeated password</source>
+                <target>Mot de passé</target>
+            </trans-unit>
+            <trans-unit id="register.full_name">
+                <source>Full name</source>
+                <target>Nom et prénom</target>
+            </trans-unit>
+            <trans-unit id="register.register">
+                <source>Register</source>
+                <target>Créer un compte</target>
+            </trans-unit>
+            <trans-unit id="register.terms">
+                <source>I agree to the terms of service</source>
+                <target>J'accepte les conditions d'utilisation</target>
+            </trans-unit>
+            <trans-unit id="register.have_account">
+                <source>Have an account?</source>
+                <target>Avoir un compte?</target>
+            </trans-unit>
+            <trans-unit id="register.signup_now">
+                <source>Sign Up now!</source>
+                <target>S'inscrire maintenant!</target>
+            </trans-unit>
+
+            <trans-unit id="sign_in.sign_up">
+                <source>Sign Up</source>
+                <target>S'inscrire</target>
+            </trans-unit>
+            <trans-unit id="sign_in.login">
+                <source>Login</source>
+                <target>S'identifier</target>
+            </trans-unit>
+            <trans-unit id="sign_in.gave_account">
+                <source>Not have an account?</source>
+                <target>Vous n'avez pas de compte?</target>
+            </trans-unit>
+            <trans-unit id="sign_in.register_now">
+                <source>Register now!</source>
+                <target>S'inscrire maintenant!</target>
+            </trans-unit>
+
+            <trans-unit id="notifications.unread">
+                <source>Unread notifications</source>
+                <target>Notifications non lues</target>
+            </trans-unit>
+            <trans-unit id="notifications.mark_read">
+                <source>Mark all as read</source>
+                <target>Tout marquer comme lu</target>
+            </trans-unit>
+            <trans-unit id="notifications.likes_your">
+                <source>likes your</source>
+                <target>aime votre</target>
+            </trans-unit>
+            <trans-unit id="notifications.your_post">
+                <source>post</source>
+                <target>post</target>
+            </trans-unit>
+            <trans-unit id="notifications.none">
+                <source>You have no notifications.</source>
+                <target>Vous n'avez aucune notification.</target>
+            </trans-unit>
+
+            <trans-unit id="post.like">
+                <source>Like</source>
+                <target>Comme</target>
+            </trans-unit>
+            <trans-unit id="post.unlike">
+                <source>Unlike</source>
+                <target>Contrairement à</target>
+            </trans-unit>
+            <trans-unit id="post.save">
+                <source>Save</source>
+                <target>Sauver</target>
+            </trans-unit>
+
+            <trans-unit id="row-post.edit">
+                <source>Edit</source>
+                <target>Éditer</target>
+            </trans-unit>
+            <trans-unit id="row-post.delete">
+                <source>Delete</source>
+                <target>Supprimer</target>
+            </trans-unit>
+
+
+            <trans-unit id="user.followers">
+                <source>Followers</source>
+                <target>{count, plural,
+                    =0 {Aucun abonné}
+                    one {Abonné}
+                    other {# abonnés}
+                    }
+                </target>
+            </trans-unit>
+            <trans-unit id="user.following">
+                <source>Following</source>
+                <target>
+                    {count, plural,
+                    =0 {Après personne}
+                    other {Suite #}
+                    }
+                </target>
+            </trans-unit>
+
+            <trans-unit id="email.registration">
+                <source>email.registration</source>
+                <target><![CDATA[<html><head><meta charset="UTF-8"></head><body><h3>Bienvenue dans l'application!</h3>
+<p>Bonjour %name%! Vous êtes inscrit dans l'application!</p>
+<p>Veuillez confirmer le compte en cliquant sur ce lien
+<a href="%confirm-link%">lien</a>.
+</p>
+<p>Pour vous connecter, accédez à <a href="%login-link%">page de connexion</a>.</p>
+<p>Merci!</p></body></html>]]></target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

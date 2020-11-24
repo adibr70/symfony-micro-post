@@ -1,0 +1,146 @@
+{#
+/**
+ * @file
+ * Default template with the blocksfor the solution of the test.
+ *
+ * Available variables (needed for the test):
+ * - data_t2: The variable for the block solution_news. This variable contains a list
+ *   of articles from a JSON format that needs to be rendered as requested.
+ *   Each item inside data_t2 contains the following content:
+ *   - id: the id of the article.
+ *   - date: the date of the article.
+ *   - title: the title of the article.
+ *   - slug: the slug used for the url.
+ *   - location: where rhe article happened.
+ *   - text: long text with the HTML of the article.
+ *   - images: array of images. Can be empty.
+ * - data_t4: The variable for the block solution_accordion. This variable contains a list
+ *   of information belonging to ESN (countries, sections, etc.)
+ *   Each item inside data_t4 contains the following content:
+ *    - country: the country where are the sections
+ *    - country_code: the country code for the specific country
+ *    - sections: a list with ESN information from the specific country
+ *      Each item inside sctions contains the following content:
+ *        - label: ESN section name
+ *        - code: ESN code
+ *        - website: ESN website URL
+ * - data_t5: The variable for the block solution_table. This variable contains a list
+ *   of information get it by ESN Api using the card read by .xlsx file
+ *  Each item inside data_t4 contains the following content:
+ *   -  card_exists: 1 if the card iformation returned after API request, 0 if not
+ *   -  code: card code
+ *   -  card_info: a list with all iformation returned after API request
+ *      Each item inside sctions contains the following content:
+ *        - card_code: card code
+ *        - card_status: active/expired/blocked
+ *        - section_code: the real name of the section
+ *        - card_date: when the card it was activated
+ *        - card_expiration_date: one year after the card was activated
+ *
+ * Other variables availables:
+ * - num_articles: The number of articles loaded and available in data_t2.
+ * And any other variable from the parent templates.
+ */
+#}
+{% extends 'front.twig' %}
+
+{# This is the block for the solution of task 2 #}
+{% block solution_news %}
+
+    <div class="row">
+        {% for d_t2 in data_t2|reverse|slice(0, 3) %}
+            <div class="col-sm-4">
+                <div class="card" style="width: 18rem;">
+
+                    {% if d_t2.images[0] is not empty %}
+                        <img class="card-img-top" src="{{ d_t2.images[0]|first }}" alt="{{d_t2.location}}">
+                    {% else %}
+                        <img class="card-img-top" src="https://via.placeholder.com/800x600/000000/999DAO?text=TestImage1">
+                    {% endif %}
+
+                    <div class="card-body">
+                        <h5 class="card-title">{{ d_t2.title }}</h5>
+
+                        <div class="clearfix">
+                            <p class="float-sm-right text-muted">{{ d_t2.date }}</p>
+                        </div>
+
+                        <p class="card-text">
+                            {% set text = d_t2.text|striptags %}
+                            {{ text|length > 250 ? text|slice(0, 250) ~ '...' : text }}
+                        </p>
+
+                        <a href="{{ site_url}}/article/{{ d_t2.slug }}" class="btn btn-primary">Go to the article</a>
+                    </div>
+
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
+
+{# This is the block for the solution of task 4 #}
+{% block solution_accordion %}
+
+    <div id="accordion">
+        {% for d_t4 in data_t4 %}
+            <div class="card">
+                <div class="card-header" id="heading{{ d_t4.country_code }}">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapse{{ d_t4.country_code }}" aria-expanded="false" aria-controls="collapse{{ d_t4.country_code }}">
+                            <img src="https://www.countryflags.io/{{ d_t4.country_code|lower }}/flat/64.png" width="40"> {{ d_t4.country }} ({{ d_t4.sections|length }} {{ d_t4.sections|length > 1 ? 'sections' : 'section'}})
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapse{{ d_t4.country_code }}" class="collapse" aria-labelledby="heading{{ d_t4.country_code }}" data-parent="#accordion">
+                    <div class="card-body">
+                        {% for s in d_t4.sections|sort((a, b) => a.code <=> b.code) %}
+                            <p class="card-text">{{ s.label }} ({{ s.code }})
+                                {% if s.website is not empty %}
+                                    <a href="{{ s.website }}" target="_blank">
+                                        <i class="fab fa-internet-explorer" style="color: dodgerblue"></i>
+                                    </a>
+                                {% endif %}
+                            </p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
+
+{# This is the block for the solution of task 5 #}
+{% block solution_table %}
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Card Code</th>
+            <th scope="col">Section Name</th>
+            <th scope="col">Status</th>
+            <th scope="col">Activation Date</th>
+            <th scope="col">Expiration Date</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for d_t5 in data_t5|sort((a, b) => a.code <=> b.code) %}
+                <tr>
+                    <th scope="row">{{ loop.index }}</th>
+                    <td>{{ d_t5.code }}</td>
+                    {% if d_t5.card_exists == 1 %}
+                        <td>{{ d_t5.card_info.section_code }}</td>
+                        <td>{{ d_t5.card_info.card_status }}</td>
+                        <td>{{ d_t5.card_info.card_date }}</td>
+                        <td>{{ d_t5.card_info.card_expiration_date }}</td>
+                    {% else %}
+                        <td colspan="4">This card is not available.</td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

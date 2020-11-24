@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="menu.signin">
+                <source>Signs in</source>
+                <target>Sign in</target>
+            </trans-unit>
+            <trans-unit id="menu.signout">
+                <source>Sign out</source>
+                <target>Sign out</target>
+            </trans-unit>
+            <trans-unit id="menu.notifications">
+                <source>Notifications</source>
+                <target>Notifications</target>
+            </trans-unit>
+            <trans-unit id="menu.add">
+                <source>Add new</source>
+                <target>Add new</target>
+            </trans-unit>
+            <trans-unit id="post.recent">
+                <source>Recent updates</source>
+                <target>Recent updates</target>
+            </trans-unit>
+            <trans-unit id="post.index.message">
+                <source>You currently do not follow anyone, you might find these users interesting:</source>
+                <target>You currently do not follow anyone, you might find these users interesting:</target>
+            </trans-unit>
+
+            <trans-unit id="register.username">
+                <source>Username</source>
+                <target>Username</target>
+            </trans-unit>
+            <trans-unit id="register.password">
+                <source>Password</source>
+                <target>Password</target>
+            </trans-unit>
+            <trans-unit id="register.repeated_password">
+                <source>Repeated password</source>
+                <target>Repeated password</target>
+            </trans-unit>
+            <trans-unit id="register.full_name">
+                <source>Full name</source>
+                <target>Full name</target>
+            </trans-unit>
+            <trans-unit id="register.register">
+                <source>Register</source>
+                <target>Register</target>
+            </trans-unit>
+            <trans-unit id="register.terms">
+                <source>I agree to the terms of service</source>
+                <target>I agree to the terms of service</target>
+            </trans-unit>
+            <trans-unit id="register.have_account">
+                <source>Have an account?</source>
+                <target>Have an account?</target>
+            </trans-unit>
+            <trans-unit id="register.signup_now">
+                <source>Sign Up now!</source>
+                <target>Sign Up now!</target>
+            </trans-unit>
+
+            <trans-unit id="sign_in.sign_up">
+                <source>Sign Up</source>
+                <target>Sign Up</target>
+            </trans-unit>
+            <trans-unit id="sign_in.login">
+                <source>Login</source>
+                <target>Login</target>
+            </trans-unit>
+            <trans-unit id="sign_in.gave_account">
+                <source>Not have an account?</source>
+                <target>Not have an account?</target>
+            </trans-unit>
+            <trans-unit id="sign_in.register_now">
+                <source>Register now!</source>
+                <target>Register now!</target>
+            </trans-unit>
+
+            <trans-unit id="notifications.unread">
+                <source>Unread notifications</source>
+                <target>Unread notifications</target>
+            </trans-unit>
+            <trans-unit id="notifications.mark_read">
+                <source>Mark all as read</source>
+                <target>Mark all as read</target>
+            </trans-unit>
+            <trans-unit id="notifications.likes_your">
+                <source>likes your</source>
+                <target>likes your</target>
+            </trans-unit>
+            <trans-unit id="notifications.your_post">
+                <source>post</source>
+                <target>post</target>
+            </trans-unit>
+            <trans-unit id="notifications.none">
+                <source>You have no notifications.</source>
+                <target>You have no notifications.</target>
+            </trans-unit>
+
+            <trans-unit id="post.like">
+                <source>Like</source>
+                <target>Like</target>
+            </trans-unit>
+            <trans-unit id="post.unlike">
+                <source>Unlike</source>
+                <target>Unlike</target>
+            </trans-unit>
+            <trans-unit id="post.save">
+                <source>Save</source>
+                <target>Save</target>
+            </trans-unit>
+
+            <trans-unit id="row-post.edit">
+                <source>Edit</source>
+                <target>Edit</target>
+            </trans-unit>
+            <trans-unit id="row-post.delete">
+                <source>Delete</source>
+                <target>Delete</target>
+            </trans-unit>
+
+            <trans-unit id="user.followers">
+                <source>Followers</source>
+                <target>{count, plural,
+                    =0 {No followers}
+                    one {One follower}
+                    other {# followers}
+                    }
+                </target>
+            </trans-unit>
+            <trans-unit id="user.following">
+                <source>Following</source>
+                <target>
+                    {count, plural,
+                    =0 {Following no one}
+                    other {Following #}
+                    }
+                </target>
+            </trans-unit>
+
+            <trans-unit id="email.registration">
+                <source>email.registration</source>
+                <target><![CDATA[<html><head><meta charset="UTF-8"></head><body>
+                <h3>Welcome to the app!</h3>
+<p>Hello %name%! You've registered into the app!</p>
+<p>Please confirm account by clicking this
+    <a href="%confirm-link%">link</a>.
+</p>
+<p>To login, go to <a href="%login-link%">login page</a>.</p>
+<p>Thanks!</p></body></html>]]></target>
+            </trans-unit>
+
+        </body>
+    </file>
+</xliff>

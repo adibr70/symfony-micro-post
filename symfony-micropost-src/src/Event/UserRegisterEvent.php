@@ -4,9 +4,14 @@
 namespace App\Event;
 
 use App\Entity\User;
-use Symfony\Component\EventDispatcher\EventDispatcher;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Contracts\EventDispatcher\Event;
 
-class UserRegisterEvent extends EventDispatcher
+/**
+ * The user.register event is dispatched each time a new user is registered
+ * in the system.
+ */
+class UserRegisterEvent extends Event
 {
     const NAME = 'user.register';
 
@@ -14,10 +19,23 @@ class UserRegisterEvent extends EventDispatcher
      * @var User
      */
     private $registeredUser;
+    /**
+     * @var Request
+     */
+    private $request;
 
-    public function __construct(User $registeredUser)
+    public function __construct(User $registeredUser, Request $request)
     {
         $this->registeredUser = $registeredUser;
+        $this->request = $request;
+    }
+
+    /**
+     * @return Request
+     */
+    public function getRequest(): Request
+    {
+        return $this->request;
     }
 
     /**

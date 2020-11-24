@@ -48,7 +48,7 @@ class RegisterController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
-            $userRegisterEvent = new UserRegisterEvent($user);
+            $userRegisterEvent = new UserRegisterEvent($user, $request);
 
             $eventDispatcher->dispatch(
                 $userRegisterEvent,

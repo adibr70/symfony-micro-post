@@ -66,8 +66,9 @@ class UserSubscriber implements EventSubscriberInterface
 
     public function onUserRegister(UserRegisterEvent $event)
     {
+        $locale = $event->getRequest()->getLocale() ? $event->getRequest()->getLocale() : $this->defaultLocale;
         $preferences = new UserPreferences();
-        $preferences->setLocale($this->defaultLocale);
+        $preferences->setLocale($locale);
 
         $user = $event->getRegisteredUser();
         $user->setPreferences($preferences);

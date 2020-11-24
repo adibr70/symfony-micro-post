@@ -5,6 +5,7 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: 'en'
+    app_locales: 'en|fr|nl'
     hello_message: 'Hello from Service'
     email_from: '%env(MAILER_FROM)%'
 
@@ -16,6 +17,8 @@ services:
         
         bind:
             $message: '%hello_message%'
+            $locales: '%app_locales%'
+            $defaultLocale: '%locale%'
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
@@ -60,4 +63,4 @@ services:
 
     App\Event\LocaleSubscriber:
         arguments:
-            - '%kernel.default_locale%'
+            $defaultLocale: '%kernel.default_locale%'

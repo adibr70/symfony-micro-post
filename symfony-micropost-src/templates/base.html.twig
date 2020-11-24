@@ -17,7 +17,7 @@
                     <ul class="navbar-nav px-3">
                         {% if is_granted('ROLE_USER') %}
                         <li class="nav-item text-nowrap">
-                            <a class="nav-link" href="{{ path('micro_post_add') }}">{{ 'Add new'|trans }}</a>
+                            <a class="btn btn-dark nav-link" href="{{ path('micro_post_add') }}">{{ 'Add new'|trans }}</a>
                         </li>
                         {% endif %}
                     </ul>
@@ -27,7 +27,7 @@
                     <ul class="navbar-nav px-3">
                         {% if is_granted('ROLE_USER') %}
                             <li class="nav-item text-nowrap border-right border-secondary">
-                                <a class="nav-link" href="{{ path('notification_all') }}">
+                                <a class="btn btn-dark nav-link" href="{{ path('notification_all') }}">
                                     {{ 'Notification'|trans }}
                                     <span class="badge badge-light" id="notification-count">
                                         <i class="fa fa-circle fa-circle-o-notch fa-spin"></i>
@@ -35,17 +35,40 @@
                                 </a>
                             </li>
                             <li class="nav-item text-nowrap">
-                                <a class="nav-link" href="#">{{ app.user.fullName }}</a>
+                                <a class="btn btn-dark nav-link" href="{{ path('micro_post_user', {'username': app.user.username} ) }}">{{ app.user.fullName }}</a>
                             </li>
                             <li class="nav-item text-nowrap">
-                                <a class="nav-link" href="{{ logout_path() }}">{{ 'Sign out'|trans }}</a>
+                                <a class="btn btn-dark nav-link" href="{{ logout_path() }}">{{ 'Sign out'|trans }}</a>
                             </li>
                         {% else %}
                             <li class="nav-item text-nowrap">
-                                <a class="nav-link" href="{{ path('security_login') }}">{{ 'Sign in'|trans }}</a>
+                                <a class="btn btn-dark nav-link" href="{{ path('security_login') }}">{{ 'Sign in'|trans }}</a>
                             </li>
                         {% endif %}
+                        <li class="nav-item text-nowrap dropdown">
+                            <a class="btn btn-dark btn-secondary nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{ app.request.locale|capitalize }}
+                            </a>
+
+                            {% set route = app.request.attributes.get('_route') %}
+                            {% set route_params = app.request.attributes.get('_route_params') %}
+                            {% set params = route_params|merge(app.request.query.all) %}
+
+                            {% set applocales = locales|split('|') %}
+
+                            <div class="dropdown-menu dropdown-menu-right" style="min-width: min-content" aria-labelledby="dropdownMenuLink">
+                                {% for locale in applocales %}
+                                    {% if locale != app.request.locale %}
+                                        <a id="{{ locale }}" class="dropdown-item"
+                                                href="{{ path(route, params|merge({_locale: locale})) }}">
+                                            {{ locale|capitalize }}
+                                        </a>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </li>
                     </ul>
+
                 </div>
 
             </nav>
@@ -59,8 +82,8 @@
             {% block javascripts %}
                 {{ encore_entry_script_tags('js/app') }}
 
-                {% if is_granted('ROLE_USER') %}
-                    <script type="text/javascript">
+                <script type="text/javascript">
+                    {% if is_granted('ROLE_USER') %}
                         function fetchNotificationCount() {
                             fetch(
                                 '{{ path('notification_unread') }}',
@@ -75,8 +98,8 @@
                             });
                         }
                         fetchNotificationCount();
-                    </script>
-                {% endif %}
+                    {% endif %}
+                </script>
             {% endblock %}
         </body>
 </html>

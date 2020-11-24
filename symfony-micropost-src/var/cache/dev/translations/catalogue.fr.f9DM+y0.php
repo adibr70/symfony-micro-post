@@ -125,20 +125,48 @@ $catalogue = new MessageCatalogue('fr', array (
     'Account is disabled.' => 'Le compte est désactivé.',
     'Account is locked.' => 'Le compte est bloqué.',
   ),
-  'messages' => 
+  'messages+intl-icu' => 
   array (
     'Sign in' => 'Se connecter',
     'Sign out' => 'Déconnexion',
     'Notifications' => 'Notifications',
     'Add new' => 'Ajouter une nouvelle',
     'Recent updates' => 'Mises à jour récentes',
-    'I agree to the terms of service' => 'J\'accepte les conditions d\'utilisation',
+    'You currently do not follow anyone, you might find these users interesting:' => 'Vous ne suivez actuellement personne, vous pourriez trouver ces utilisateurs intéressants:',
     'Username' => 'Nom d\'utilisateur',
     'Password' => 'Mot de passe',
-    'Repated password' => 'Mot de passé',
+    'Repeated password' => 'Mot de passé',
     'Full name' => 'Nom et prénom',
     'Register' => 'Créer un compte',
-    'You have not notifications' => 'Vous n\'avez pas de notifications',
+    'I agree to the terms of service' => 'J\'accepte les conditions d\'utilisation',
+    'Have an account?' => 'Avoir un compte?',
+    'Sign Up now!' => 'S\'inscrire maintenant!',
+    'Sign Up' => 'S\'inscrire',
+    'Login' => 'S\'identifier',
+    'Not have an account?' => 'Vous n\'avez pas de compte?',
+    'Register now!' => 'S\'inscrire maintenant!',
+    'Unread notifications' => 'Notifications non lues',
+    'Mark all as read' => 'Tout marquer comme lu',
+    'likes your' => 'aime votre',
+    'post' => 'post',
+    'You have no notifications.' => 'Vous n\'avez aucune notification.',
+    'Like' => 'Comme',
+    'Unlike' => 'Contrairement à',
+    'Save' => 'Sauver',
+    'Edit' => 'Éditer',
+    'Delete' => 'Supprimer',
+    'Followers' => '{count, plural,
+                    =0 {Aucun abonné}
+                    one {Abonné}
+                    other {# abonnés}
+                    }
+                ',
+    'Following' => '
+                    {count, plural,
+                    =0 {Après personne}
+                    other {Suite #}
+                    }
+                ',
     'email.registration' => '<html><head><meta charset="UTF-8"></head><body><h3>Bienvenue dans l\'application!</h3>
 <p>Bonjour %name%! Vous êtes inscrit dans l\'application!</p>
 <p>Veuillez confirmer le compte en cliquant sur ce lien
@@ -296,20 +324,48 @@ $catalogueEn = new MessageCatalogue('en', array (
     'Account is disabled.' => 'Account is disabled.',
     'Account is locked.' => 'Account is locked.',
   ),
-  'messages' => 
+  'messages+intl-icu' => 
   array (
     'Signs in' => 'Sign in',
     'Sign out' => 'Sign out',
     'Notifications' => 'Notifications',
     'Add new' => 'Add new',
     'Recent updates' => 'Recent updates',
-    'I agree to the terms of service' => 'I agree to the terms of service',
+    'You currently do not follow anyone, you might find these users interesting:' => 'You currently do not follow anyone, you might find these users interesting:',
     'Username' => 'Username',
     'Password' => 'Password',
-    'Repated password' => 'Repated password',
+    'Repeated password' => 'Repeated password',
     'Full name' => 'Full name',
     'Register' => 'Register',
-    'You have not notifications' => 'You have not notifications',
+    'I agree to the terms of service' => 'I agree to the terms of service',
+    'Have an account?' => 'Have an account?',
+    'Sign Up now!' => 'Sign Up now!',
+    'Sign Up' => 'Sign Up',
+    'Login' => 'Login',
+    'Not have an account?' => 'Not have an account?',
+    'Register now!' => 'Register now!',
+    'Unread notifications' => 'Unread notifications',
+    'Mark all as read' => 'Mark all as read',
+    'likes your' => 'likes your',
+    'post' => 'post',
+    'You have no notifications.' => 'You have no notifications.',
+    'Like' => 'Like',
+    'Unlike' => 'Unlike',
+    'Save' => 'Save',
+    'Edit' => 'Edit',
+    'Delete' => 'Delete',
+    'Followers' => '{count, plural,
+                    =0 {No followers}
+                    one {One follower}
+                    other {# followers}
+                    }
+                ',
+    'Following' => '
+                    {count, plural,
+                    =0 {Following no one}
+                    other {Following #}
+                    }
+                ',
     'email.registration' => '<html><head><meta charset="UTF-8"></head><body>
                 <h3>Welcome to the app!</h3>
 <p>Hello %name%! You\'ve registered into the app!</p>
@@ -318,8 +374,6 @@ $catalogueEn = new MessageCatalogue('en', array (
 </p>
 <p>To login, go to <a href="%login-link%">login page</a>.</p>
 <p>Thanks!</p></body></html>',
-    'Followers' => '{0} No followers|{1} Follower|]1,Inf[ %count% Followers',
-    'Following' => '{0} Following no one|]0,Inf[ Following %count%',
   ),
 ));
 $catalogue->addFallbackCatalogue($catalogueEn);

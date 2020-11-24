@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" target-language="fr" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="menu.signin">
+                <source>Sign in</source>
+                <target>Inloggen</target>
+            </trans-unit>
+            <trans-unit id="menu.signout">
+                <source>Sign out</source>
+                <target>Afmelden</target>
+            </trans-unit>
+            <trans-unit id="menu.notifications">
+                <source>Notifications</source>
+                <target>Meldingen</target>
+            </trans-unit>
+            <trans-unit id="menu.add">
+                <source>Add new</source>
+                <target>Nieuwe toevoegen</target>
+            </trans-unit>
+            <trans-unit id="post.recent">
+                <source>Recent updates</source>
+                <target>Recente updates</target>
+            </trans-unit>
+            <trans-unit id="post.index.message">
+                <source>You currently do not follow anyone, you might find these users interesting:</source>
+                <target>U volgt momenteel niemand, misschien vindt u deze gebruikers interessant:</target>
+            </trans-unit>
+
+            <trans-unit id="register.username">
+                <source>Username</source>
+                <target>Gebruikersnaam</target>
+            </trans-unit>
+            <trans-unit id="register.password">
+                <source>Password</source>
+                <target>Wachtwoord</target>
+            </trans-unit>
+            <trans-unit id="register.repeated_password">
+                <source>Repeated password</source>
+                <target>Herhaald wachtwoord</target>
+            </trans-unit>
+            <trans-unit id="register.full_name">
+                <source>Full name</source>
+                <target>Voor-en achternaam</target>
+            </trans-unit>
+            <trans-unit id="register.register">
+                <source>Register</source>
+                <target>Registreren</target>
+            </trans-unit>
+            <trans-unit id="register.terms">
+                <source>I agree to the terms of service</source>
+                <target>Ik ga akkoord met de Algemene Voorwaarden</target>
+            </trans-unit>
+            <trans-unit id="register.have_account">
+                <source>Have an account?</source>
+                <target>Een account hebben?</target>
+            </trans-unit>
+            <trans-unit id="register.signup_now">
+                <source>Sign Up now!</source>
+                <target>Meld je nu aan!</target>
+            </trans-unit>
+
+            <trans-unit id="sign_in.sign_up">
+                <source>Sign Up</source>
+                <target>Aanmelden</target>
+            </trans-unit>
+            <trans-unit id="sign_in.login">
+                <source>Login</source>
+                <target>Inloggen</target>
+            </trans-unit>
+            <trans-unit id="sign_in.gave_account">
+                <source>Not have an account?</source>
+                <target>Nog geen account?</target>
+            </trans-unit>
+            <trans-unit id="sign_in.register_now">
+                <source>Register now!</source>
+                <target>Registreer nu!</target>
+            </trans-unit>
+
+            <trans-unit id="notifications.unread">
+                <source>Unread notifications</source>
+                <target>Ongelezen meldingen</target>
+            </trans-unit>
+            <trans-unit id="notifications.mark_read">
+                <source>Mark all as read</source>
+                <target>Markeer alles als gelezen</target>
+            </trans-unit>
+            <trans-unit id="notifications.likes_your">
+                <source>likes your</source>
+                <target>vindt jouw</target>
+            </trans-unit>
+            <trans-unit id="notifications.your_post">
+                <source>post</source>
+                <target>bericht</target>
+            </trans-unit>
+            <trans-unit id="notifications.none">
+                <source>You have no notifications.</source>
+                <target>U heeft geen notificaties.</target>
+            </trans-unit>
+
+            <trans-unit id="post.like">
+                <source>Like</source>
+                <target>Leuk vinden</target>
+            </trans-unit>
+            <trans-unit id="post.unlike">
+                <source>Unlike</source>
+                <target>Niet gelijkend</target>
+            </trans-unit>
+            <trans-unit id="post.save">
+                <source>Save</source>
+                <target>Opslaan</target>
+            </trans-unit>
+
+            <trans-unit id="row-post.edit">
+                <source>Edit</source>
+                <target>Bewerk</target>
+            </trans-unit>
+            <trans-unit id="row-post.delete">
+                <source>Delete</source>
+                <target>Verwijderen</target>
+            </trans-unit>
+
+            <trans-unit id="user.followers">
+                <source>Followers</source>
+                <target>{count, plural,
+                    =0 {Geen volgers}
+                    one {Volgeling}
+                    other {# volgers}
+                    }
+                </target>
+            </trans-unit>
+            <trans-unit id="user.following">
+                <source>Following</source>
+                <target>
+                    {count, plural,
+                    =0 {Niemand volgen}
+                    other {In aansluiting op #}
+                    }
+                </target>
+            </trans-unit>
+
+            <trans-unit id="email.registration">
+                <source>email.registration</source>
+                <target><![CDATA[<html><head><meta charset="UTF-8"></head><body><h3>Welkom bij de app!</h3>
+                    <p> Hallo %name%! U bent geregistreerd in de app! </p>
+                    <p> Bevestig uw account door hierop te klikken
+                        <a href="%confirm-link%"> link </a>.
+                    </p>
+                    <p> Ga naar de <a href="%login-link%"> inlogpagina </a> om in te loggen. </p>
+                    <p>Bedankt!</p></body></html>]]>
+                </target>
+            </trans-unit>
+
+        </body>
+    </file>
+</xliff>

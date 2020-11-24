@@ -4,13 +4,13 @@
     <div class="card">
         {% if notifications|length %}
             <div class="card-body">
-                <h5>Unread notifications</h5>
+                <h5>{{ 'Unread notifications'|trans }}</h5>
             </div>
             <ul class="list-group-item list-group-flush">
                 <li class="list-group-item">
                     <a class="btn btn-block btn-default btn-link btn-outline-info"
                         href="{{ path('notification_acknowledge_all') }}">
-                        Mark all as read
+                        {{ 'Mark all as read'|trans }}
                     </a>
                 </li>
                 {% for notification in notifications %}
@@ -22,15 +22,15 @@
                         {% if notification is like %}
                             <a href="{{ path('micro_post_user', {'username': notification.likedBy.username}) }}">
                                 {{ notification.likedBy.username }}</a>
-                            likes your
-                            <a href="{{ path('micro_post_post', {'id': notification.microPost.id}) }}">post</a>
+                            {{ 'likes your'|trans }}
+                            <a href="{{ path('micro_post_post', {'id': notification.microPost.id}) }}">{{ 'post'|trans }}</a>
                         {% endif %}
                     </li>
                 {% endfor %}
             </ul>
         {% else %}
             <div class="card-body">
-                You have no notifications.
+                {{ 'You have no notifications.'|trans }}
             </div>
         {% endif %}
     </div>

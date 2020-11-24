@@ -2,20 +2,60 @@
 
 namespace App\Event;
 
+use App\Entity\User;
+use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
+use Symfony\Component\HttpKernel\Event\ResponseEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
+use Symfony\Component\Routing\RouterInterface;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Symfony\Component\Security\Core\Security;
 
+/**
+ * @ORM\Embedded
+ */
 class LocaleSubscriber implements EventSubscriberInterface
 {
     /**
      * @var string
      */
     private $defaultLocale;
+    /**
+     * @var TokenStorageInterface
+     */
+    private $tokenStorage;
+    /**
+     * @var EntityManagerInterface
+     */
+    private $entityManager;
+    /**
+     *
+     * @var RouterInterface
+     */
+    private $router;
 
-    public function __construct($defaultLocale = 'en')
+
+    /**
+     * LocaleSubscriber constructor.
+     * @param string $defaultLocale
+     * @param TokenStorageInterface $tokenStorage
+     * @param EntityManagerInterface $entityManager
+     * @param RouterInterface $router
+     */
+    public function __construct(
+        string $defaultLocale,
+        TokenStorageInterface $tokenStorage,
+        EntityManagerInterface $entityManager,
+        RouterInterface $router
+    )
     {
         $this->defaultLocale = $defaultLocale;
+        $this->tokenStorage = $tokenStorage;
+        $this->entityManager = $entityManager;
+        $this->router = $router;
     }
 
     /**
@@ -44,26 +84,47 @@ class LocaleSubscriber implements EventSubscriberInterface
         return [
             KernelEvents::REQUEST => [
                 [
-                    'onKernelRequest',
-                    20
+                    'onKernelRequest'
                 ]
             ]
         ];
     }
 
+    /**
+     * @param RequestEvent $event
+     */
     public function onKernelRequest(RequestEvent $event)
     {
         $request = $event->getRequest();
 
+        $requestLocale = $request->attributes->get('_locale');
+
+        if(empty($requestLocale)) {
+            $request->attributes->set('_locale', $this->defaultLocale);
+            $response = new RedirectResponse($this->router->generate('micro_post_index'));
+            $event->setResponse($response);
+            return;
+        }
+
+        //daca nu are inceputa o sesiune
         if(!$request->hasPreviousSession()){
             return;
         }
 
-        if($locale = $request->attributes->get('_locale')) {
-            $request->getSession()->set('_locale', $locale);
-        }else {
-            $request->setLocale($request->getSession()
-                ->get('_locale', $this->defaultLocale));
+        //daca userul logat schimba limba salvam noua limba in baza de date
+        $sessionLocale = $request->getSession()->get('_locale');
+        if($requestLocale && $sessionLocale != $requestLocale) {
+            $request->getSession()->set('_locale', $requestLocale);
+            if($this->tokenStorage->getToken()) {
+                $user = $this->tokenStorage->getToken()->getUser();
+                if($user && $user instanceof User) {
+                    $preferance = $user->getPreferences();
+                    $preferance->setLocale($requestLocale);
+                    $user->setPreferences($preferance);
+
+                    $this->entityManager->flush();
+                }
+            }
         }
     }
 }

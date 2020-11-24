@@ -85,6 +85,7 @@
     <parameter key="container.dumper.inline_class_loader">true</parameter>
     <parameter key="container.dumper.inline_factories">true</parameter>
     <parameter key="locale">en</parameter>
+    <parameter key="app_locales">en|fr|nl</parameter>
     <parameter key="hello_message">Hello from Service</parameter>
     <parameter key="email_from">%env(MAILER_FROM)%</parameter>
     <parameter key="event_dispatcher.event_aliases" type="collection">
@@ -383,21 +384,21 @@
       <argument type="service" id="session"/>
       <argument type="service" id="router.default"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.35nnJVl.App\Controller\BlogController"/>
+        <argument type="service" id=".service_locator.UQ3Ls8D.App\Controller\BlogController"/>
       </call>
     </service>
     <service id="App\Controller\FollowingController" class="App\Controller\FollowingController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.35nnJVl.App\Controller\FollowingController"/>
+        <argument type="service" id=".service_locator.UQ3Ls8D.App\Controller\FollowingController"/>
       </call>
     </service>
     <service id="App\Controller\LikesController" class="App\Controller\LikesController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.35nnJVl.App\Controller\LikesController"/>
+        <argument type="service" id=".service_locator.UQ3Ls8D.App\Controller\LikesController"/>
       </call>
     </service>
     <service id="App\Controller\MicroPostController" class="App\Controller\MicroPostController" public="true" autowire="true" autoconfigure="true">
@@ -415,14 +416,14 @@
       <tag name="container.service_subscriber"/>
       <argument type="service" id="App\Repository\NotificationRepository"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.35nnJVl.App\Controller\NotificationController"/>
+        <argument type="service" id=".service_locator.UQ3Ls8D.App\Controller\NotificationController"/>
       </call>
     </service>
     <service id="App\Controller\RegisterController" class="App\Controller\RegisterController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.35nnJVl.App\Controller\RegisterController"/>
+        <argument type="service" id=".service_locator.UQ3Ls8D.App\Controller\RegisterController"/>
       </call>
     </service>
     <service id="App\Controller\SecurityController" class="App\Controller\SecurityController" public="true" autowire="true" autoconfigure="true">
@@ -436,6 +437,10 @@
     <service id="App\Event\LocaleSubscriber" class="App\Event\LocaleSubscriber" autowire="true" autoconfigure="true">
       <tag name="kernel.event_subscriber"/>
       <tag name="container.hot_path"/>
+      <argument>en</argument>
+      <argument type="service" id="security.token_storage"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="router.default"/>
     </service>
     <service id="App\Event\UserLocaleSubscriber" class="App\Event\UserLocaleSubscriber" autowire="true" autoconfigure="true">
       <tag name="kernel.event_subscriber"/>
@@ -457,6 +462,9 @@
     <service id="App\Form\UserType" class="App\Form\UserType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Format\JSON" class="App\Format\JSON" autowire="true" autoconfigure="true"/>
+    <service id="App\Format\XML" class="App\Format\XML" autowire="true" autoconfigure="true"/>
+    <service id="App\Format\YAML" class="App\Format\YAML" autowire="true" autoconfigure="true"/>
     <service id="App\Mailer\Mailer" class="App\Mailer\Mailer" autowire="true" autoconfigure="true">
       <argument type="service" id="swiftmailer.mailer.default"/>
       <argument type="service" id="twig"/>
@@ -491,6 +499,7 @@
     </service>
     <service id="App\Security\TokenGenerator" class="App\Security\TokenGenerator" autowire="true" autoconfigure="true"/>
     <service id="App\Security\UserEnabledChecker" class="App\Security\UserEnabledChecker" autowire="true" autoconfigure="true"/>
+    <service id="App\Serializer" class="App\Serializer" autowire="true" autoconfigure="true"/>
     <service id="App\Service\Greeting" class="App\Service\Greeting" autowire="true" autoconfigure="true">
       <argument type="service" id="monolog.logger"/>
       <argument>Hello from Service</argument>
@@ -1682,7 +1691,7 @@
             <argument>/home/vagrant/symfony-01/symfony-micropost-src/vendor/symfony/validator/Resources/translations/validators.en.xlf</argument>
             <argument>/home/vagrant/symfony-01/symfony-micropost-src/vendor/symfony/form/Resources/translations/validators.en.xlf</argument>
             <argument>/home/vagrant/symfony-01/symfony-micropost-src/vendor/symfony/security-core/Resources/translations/security.en.xlf</argument>
-            <argument>/home/vagrant/symfony-01/symfony-micropost-src/translations/messages.en.xlf</argument>
+            <argument>/home/vagrant/symfony-01/symfony-micropost-src/translations/messages+intl-icu.en.xlf</argument>
             <argument>/home/vagrant/symfony-01/symfony-micropost-src/translations/validators.en.xlf</argument>
           </argument>
           <argument key="es" type="collection">
@@ -1712,7 +1721,7 @@
             <argument>/home/vagrant/symfony-01/symfony-micropost-src/vendor/symfony/validator/Resources/translations/validators.fr.xlf</argument>
             <argument>/home/vagrant/symfony-01/symfony-micropost-src/vendor/symfony/form/Resources/translations/validators.fr.xlf</argument>
             <argument>/home/vagrant/symfony-01/symfony-micropost-src/vendor/symfony/security-core/Resources/translations/security.fr.xlf</argument>
-            <argument>/home/vagrant/symfony-01/symfony-micropost-src/translations/messages.fr.xlf</argument>
+            <argument>/home/vagrant/symfony-01/symfony-micropost-src/translations/messages+intl-icu.fr.xlf</argument>
             <argument>/home/vagrant/symfony-01/symfony-micropost-src/translations/validators.fr.xlf</argument>
           </argument>
           <argument key="gl" type="collection">
@@ -1782,6 +1791,8 @@
             <argument>/home/vagrant/symfony-01/symfony-micropost-src/vendor/symfony/validator/Resources/translations/validators.nl.xlf</argument>
             <argument>/home/vagrant/symfony-01/symfony-micropost-src/vendor/symfony/form/Resources/translations/validators.nl.xlf</argument>
             <argument>/home/vagrant/symfony-01/symfony-micropost-src/vendor/symfony/security-core/Resources/translations/security.nl.xlf</argument>
+            <argument>/home/vagrant/symfony-01/symfony-micropost-src/translations/messages+intl-icu.nl.xlf</argument>
+            <argument>/home/vagrant/symfony-01/symfony-micropost-src/translations/validators.nl.xlf</argument>
           </argument>
           <argument key="nn" type="collection">
             <argument>/home/vagrant/symfony-01/symfony-micropost-src/vendor/symfony/validator/Resources/translations/validators.nn.xlf</argument>
@@ -2383,7 +2394,7 @@
           <argument type="service" id="App\Event\LocaleSubscriber"/>
           <argument>onKernelRequest</argument>
         </argument>
-        <argument>20</argument>
+        <argument>0</argument>
       </call>
       <call method="addListener">
         <argument>security.interactive_login</argument>
@@ -2916,7 +2927,7 @@
     <service id="router.default" class="Symfony\Bundle\FrameworkBundle\Routing\Router" public="false">
       <tag name="monolog.logger" channel="router"/>
       <tag name="container.service_subscriber" id="routing.loader"/>
-      <argument type="service" id=".service_locator.CNBKAgV.router.default"/>
+      <argument type="service" id=".service_locator.Oq2ASOf.router.default"/>
       <argument>kernel::loadRoutes</argument>
       <argument type="collection">
         <argument key="cache_dir">/home/vagrant/symfony-01/symfony-micropost-src/var/cache/dev</argument>
@@ -3282,6 +3293,10 @@
       <call method="addGlobal">
         <argument>message</argument>
         <argument>Hello from Service</argument>
+      </call>
+      <call method="addGlobal">
+        <argument>locales</argument>
+        <argument>en|fr|nl</argument>
       </call>
       <call method="registerUndefinedFilterCallback">
         <argument type="collection">
@@ -4747,6 +4762,9 @@
     <service id="monolog.formatter.logstash" class="Monolog\Formatter\LogstashFormatter" public="false">
       <argument>app</argument>
     </service>
+    <service id="monolog.http_client" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
+      <factory class="Symfony\Component\HttpClient\HttpClient" method="create"/>
+    </service>
     <service id="monolog.processor.psr_log_message" class="Monolog\Processor\PsrLogMessageProcessor" public="false"/>
     <service id="monolog.handler.main" class="Monolog\Handler\StreamHandler">
       <tag name="kernel.reset" method="reset"/>
@@ -5836,7 +5854,7 @@
         <argument key="translation.loader.yml" type="service" id="translation.loader.yml"/>
       </argument>
     </service>
-    <service id=".service_locator.35nnJVl" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.UQ3Ls8D" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="doctrine" type="service" id="doctrine" on-invalid="ignore"/>
@@ -5853,35 +5871,35 @@
         <argument key="twig" type="service" id="twig" on-invalid="ignore"/>
       </argument>
     </service>
-    <service id=".service_locator.35nnJVl.App\Controller\BlogController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.UQ3Ls8D.App\Controller\BlogController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\BlogController"/>
       <argument>App\Controller\BlogController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.35nnJVl" method="withContext"/>
+      <factory service=".service_locator.UQ3Ls8D" method="withContext"/>
     </service>
-    <service id=".service_locator.35nnJVl.App\Controller\FollowingController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.UQ3Ls8D.App\Controller\FollowingController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\FollowingController"/>
       <argument>App\Controller\FollowingController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.35nnJVl" method="withContext"/>
+      <factory service=".service_locator.UQ3Ls8D" method="withContext"/>
     </service>
-    <service id=".service_locator.35nnJVl.App\Controller\LikesController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.UQ3Ls8D.App\Controller\LikesController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\LikesController"/>
       <argument>App\Controller\LikesController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.35nnJVl" method="withContext"/>
+      <factory service=".service_locator.UQ3Ls8D" method="withContext"/>
     </service>
-    <service id=".service_locator.35nnJVl.App\Controller\NotificationController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.UQ3Ls8D.App\Controller\NotificationController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\NotificationController"/>
       <argument>App\Controller\NotificationController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.35nnJVl" method="withContext"/>
+      <factory service=".service_locator.UQ3Ls8D" method="withContext"/>
     </service>
-    <service id=".service_locator.35nnJVl.App\Controller\RegisterController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.UQ3Ls8D.App\Controller\RegisterController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\RegisterController"/>
       <argument>App\Controller\RegisterController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.35nnJVl" method="withContext"/>
+      <factory service=".service_locator.UQ3Ls8D" method="withContext"/>
     </service>
     <service id=".service_locator.JFjjyG5" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
@@ -5895,17 +5913,17 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.JFjjyG5" method="withContext"/>
     </service>
-    <service id=".service_locator.CNBKAgV" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.Oq2ASOf" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="routing.loader" type="service" id="routing.loader"/>
       </argument>
     </service>
-    <service id=".service_locator.CNBKAgV.router.default" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.Oq2ASOf.router.default" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="router.default"/>
       <argument>router.default</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.CNBKAgV" method="withContext"/>
+      <factory service=".service_locator.Oq2ASOf" method="withContext"/>
     </service>
     <service id=".service_locator.3TLJ8AE" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
@@ -6470,7 +6488,7 @@
     <service id="Psr\Log\LoggerInterface $debugLogger" alias="monolog.logger.debug"/>
     <service id=".service_locator.ISjGRTp" alias=".1_ServiceLocator~Ms4bbxR" public="false"/>
     <service id=".service_locator.tHpW6v3" alias=".service_locator.Y7gDuDN" public="false"/>
-    <service id=".service_locator.yWpI7I_" alias=".service_locator.35nnJVl" public="false"/>
+    <service id=".service_locator.qzPPlO2" alias=".service_locator.UQ3Ls8D" public="false"/>
     <service id="validator" alias="debug.validator" public="true"/>
     <service id="translator.data_collector.inner" alias="translator.default" public="false"/>
     <service id="event_dispatcher" alias="debug.event_dispatcher" public="true"/>

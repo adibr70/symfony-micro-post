@@ -99,6 +99,8 @@ $catalogue = new MessageCatalogue('nl', array (
     'This form should not contain extra fields.' => 'Dit formulier mag geen extra velden bevatten.',
     'The uploaded file was too large. Please try to upload a smaller file.' => 'Het geüploade bestand is te groot. Probeer een kleiner bestand te uploaden.',
     'The CSRF token is invalid. Please try to resubmit the form.' => 'De CSRF-token is ongeldig. Probeer het formulier opnieuw te versturen.',
+    'This e-mail is already used' => 'Deze email is al in gebruik',
+    'This username is already used' => 'Deze gebruikersnaam is al in gebruik',
   ),
   'security' => 
   array (
@@ -117,6 +119,57 @@ $catalogue = new MessageCatalogue('nl', array (
     'Credentials have expired.' => 'Authenticatiegegevens zijn verlopen.',
     'Account is disabled.' => 'Account is gedeactiveerd.',
     'Account is locked.' => 'Account is geblokkeerd.',
+  ),
+  'messages+intl-icu' => 
+  array (
+    'Sign in' => 'Inloggen',
+    'Sign out' => 'Afmelden',
+    'Notifications' => 'Meldingen',
+    'Add new' => 'Nieuwe toevoegen',
+    'Recent updates' => 'Recente updates',
+    'You currently do not follow anyone, you might find these users interesting:' => 'U volgt momenteel niemand, misschien vindt u deze gebruikers interessant:',
+    'Username' => 'Gebruikersnaam',
+    'Password' => 'Wachtwoord',
+    'Repeated password' => 'Herhaald wachtwoord',
+    'Full name' => 'Voor-en achternaam',
+    'Register' => 'Registreren',
+    'I agree to the terms of service' => 'Ik ga akkoord met de Algemene Voorwaarden',
+    'Have an account?' => 'Een account hebben?',
+    'Sign Up now!' => 'Meld je nu aan!',
+    'Sign Up' => 'Aanmelden',
+    'Login' => 'Inloggen',
+    'Not have an account?' => 'Nog geen account?',
+    'Register now!' => 'Registreer nu!',
+    'Unread notifications' => 'Ongelezen meldingen',
+    'Mark all as read' => 'Markeer alles als gelezen',
+    'likes your' => 'vindt jouw',
+    'post' => 'bericht',
+    'You have no notifications.' => 'U heeft geen notificaties.',
+    'Like' => 'Leuk vinden',
+    'Unlike' => 'Niet gelijkend',
+    'Save' => 'Opslaan',
+    'Edit' => 'Bewerk',
+    'Delete' => 'Verwijderen',
+    'Followers' => '{count, plural,
+                    =0 {Geen volgers}
+                    one {Volgeling}
+                    other {# volgers}
+                    }
+                ',
+    'Following' => '
+                    {count, plural,
+                    =0 {Niemand volgen}
+                    other {In aansluiting op #}
+                    }
+                ',
+    'email.registration' => '<html><head><meta charset="UTF-8"></head><body><h3>Welkom bij de app!</h3>
+                    <p> Hallo %name%! U bent geregistreerd in de app! </p>
+                    <p> Bevestig uw account door hierop te klikken
+                        <a href="%confirm-link%"> link </a>.
+                    </p>
+                    <p> Ga naar de <a href="%login-link%"> inlogpagina </a> om in te loggen. </p>
+                    <p>Bedankt!</p></body></html>
+                ',
   ),
 ));
 
@@ -267,20 +320,48 @@ $catalogueEn = new MessageCatalogue('en', array (
     'Account is disabled.' => 'Account is disabled.',
     'Account is locked.' => 'Account is locked.',
   ),
-  'messages' => 
+  'messages+intl-icu' => 
   array (
     'Signs in' => 'Sign in',
     'Sign out' => 'Sign out',
     'Notifications' => 'Notifications',
     'Add new' => 'Add new',
     'Recent updates' => 'Recent updates',
-    'I agree to the terms of service' => 'I agree to the terms of service',
+    'You currently do not follow anyone, you might find these users interesting:' => 'You currently do not follow anyone, you might find these users interesting:',
     'Username' => 'Username',
     'Password' => 'Password',
-    'Repated password' => 'Repated password',
+    'Repeated password' => 'Repeated password',
     'Full name' => 'Full name',
     'Register' => 'Register',
-    'You have not notifications' => 'You have not notifications',
+    'I agree to the terms of service' => 'I agree to the terms of service',
+    'Have an account?' => 'Have an account?',
+    'Sign Up now!' => 'Sign Up now!',
+    'Sign Up' => 'Sign Up',
+    'Login' => 'Login',
+    'Not have an account?' => 'Not have an account?',
+    'Register now!' => 'Register now!',
+    'Unread notifications' => 'Unread notifications',
+    'Mark all as read' => 'Mark all as read',
+    'likes your' => 'likes your',
+    'post' => 'post',
+    'You have no notifications.' => 'You have no notifications.',
+    'Like' => 'Like',
+    'Unlike' => 'Unlike',
+    'Save' => 'Save',
+    'Edit' => 'Edit',
+    'Delete' => 'Delete',
+    'Followers' => '{count, plural,
+                    =0 {No followers}
+                    one {One follower}
+                    other {# followers}
+                    }
+                ',
+    'Following' => '
+                    {count, plural,
+                    =0 {Following no one}
+                    other {Following #}
+                    }
+                ',
     'email.registration' => '<html><head><meta charset="UTF-8"></head><body>
                 <h3>Welcome to the app!</h3>
 <p>Hello %name%! You\'ve registered into the app!</p>
@@ -289,8 +370,6 @@ $catalogueEn = new MessageCatalogue('en', array (
 </p>
 <p>To login, go to <a href="%login-link%">login page</a>.</p>
 <p>Thanks!</p></body></html>',
-    'Followers' => '{0} No followers|{1} Follower|]1,Inf[ %count% Followers',
-    'Following' => '{0} Following no one|]0,Inf[ Following %count%',
   ),
 ));
 $catalogue->addFallbackCatalogue($catalogueEn);

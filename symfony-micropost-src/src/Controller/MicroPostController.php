@@ -109,16 +109,16 @@ class MicroPostController
             $posts = $this->microPostRepository->findAllByUsers($currentUser->getFollowing());
 
             $usersToFollow = count($posts) === 0 ? $userRepository->findAllExceptUserWithMorePostsThan(
-                                                                        5,
+                                                                        3,
                                                                         $currentUser
                                                                     ) : [];
-
-        } else {
-            $posts = $this->microPostRepository->findBy(
-                [],
-                ['time'=>'DESC']
-            );
         }
+
+        $posts = $this->microPostRepository->findBy(
+            [],
+            ['time'=>'DESC']
+        );
+
         $html = $this->twig->render(
             'micro-post/index.html.twig',
             [
